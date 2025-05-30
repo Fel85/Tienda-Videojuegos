@@ -4,18 +4,14 @@ def agregar_juego(juegos):
     nombre = input("Ingrese el nombre del juego: ").strip()  
     while True:
         try:
-            # Pide el precio y valida que sea un número entero (moneda chilena)
-            #ojo en este tipo de cosas es donde me doy cuenta que hay copy paste sin siquiera analizar lo que estan
-            # haciendo, vi varios validando precios con float, que precio en chile tiene decimal?
+            # Pide el precio y valida que sea un número entero (moneda chilena)            
             precio = int(input("Ingrese el precio del juego: "))  
             break
         except ValueError:
             print("Por favor, ingrese un número válido para el precio.")
-    # Agrega el juego como DICCIONARIO a la LISTA
-    # Recuerden que este es el formato JSON importante no se les olvide les servirá el resto de su carrera        
+    # Agrega el juego como DICCIONARIO a la LISTA      
     juegos.append({"nombre": nombre, "precio": precio})  
     print(f"Juego '{nombre}' agregado exitosamente.\n")
-
 # Función para mostrar todos los juegos registrados
 def mostrar_juegos(juegos):
     if not juegos:
@@ -23,9 +19,7 @@ def mostrar_juegos(juegos):
         return
     print("=== Lista de Juegos ===")
     # Recorre e imprime los juegos con su número por eso la funcion "Enumerate"
-    # algunos no me supieron explicar porque tenían enumerate y que pasaba si lo sacabamos
-    # no copien y peguen sin saber para que se usa, investiguen.
-    for i, juego in enumerate(juegos, 1):  
+     for i, juego in enumerate(juegos, 1):  
         print(f"{i}. {juego['nombre']} - ${juego['precio']}")
     print()
 
